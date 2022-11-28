@@ -36,9 +36,11 @@ When(/^Select nth (.*) item from the suggestions/,async function (suggestionNum)
     //Selected the nth suggested option
     const selectedCause = await causeSuggestionList[suggestionNum - 1 ].getText();
 
+    //const searchCause = await SupportCausePage.searchCauseLink;
     let ele = await $("#sagc-hero-search-input");
-    //await ele.clearValue();
+    
     //clearValue is not working as expected, hence using backSpaces to clear the input box
+    //await ele.clearValue();
 
     const backSpaces = new Array(this.searchItem.length).fill("Backspace");
 
@@ -50,6 +52,10 @@ When(/^Select nth (.*) item from the suggestions/,async function (suggestionNum)
 );
 
 When(/^Click SearchCause Button/, async function () {
+
+  //Click Search
+
+  //await SupportCausePage.submitSearchCauseLink.click();
   let ele = await $("#sagc-hero-search-submit");
   await ele.click();
 });
