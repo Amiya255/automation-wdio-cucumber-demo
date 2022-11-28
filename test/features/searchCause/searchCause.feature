@@ -7,7 +7,7 @@ Feature: Search Cause
         And Type <SearchItem> in SeachCause Input
         And Select nth <SuggestionNum> item from the suggestions
         And Click SearchCause Button
-        Then Result Items should have Serch Item
+        Then Result Items should have Search Item
 
         Examples:
             | TestID      | SearchItem | SuggestionNum |

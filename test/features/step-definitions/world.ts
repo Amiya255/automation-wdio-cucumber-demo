@@ -3,8 +3,10 @@ import chai from "chai";
 
 class CustomWorld {
   selectedCause: string;
+  searchItem: string
   constructor() {
     this.selectedCause = "";
+    this.searchItem ="";
   }
 }
 
