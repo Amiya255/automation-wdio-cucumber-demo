@@ -2,9 +2,9 @@
 A test framework for Easyfundraising 
 
 ## How to run
-Run below command inside the project folder
-1. npm install @wdio/cli
-2. npx wido wido.conf.ts
+1. download the package and run below command inside the project folder
+2. npm install @wdio/cli
+3. npx wido wido.conf.ts
 
 ### Folder structure
 - features - This folder contains all `.feature` files.
