@@ -1,61 +1,46 @@
-import { Given, When, Then } from "@wdio/cucumber-framework";
-import chai from "chai";
+import { When } from "@wdio/cucumber-framework";
 import HomePage from '../../page-objects/home-page';
 import SupportCausePage from '../../page-objects/support-cause-page';
-import SearchCausePage from '../../page-objects/search-cause-page';
 
-When(/^Click on Find A Cause/, async function () {
- 
-  // await HomePage.findACauseLink.click();
-  //Click on Seach Cause link
-  let ele = await $('div[data-testid="header-link"]:nth-child(2)');
-  ele.click();
+
+When(/^The user clicks the link 'Find A Cause'/, async function () {
+
+  await HomePage.findACauseLink.click();
+
 });
 
-When(/^Type(.*) in SeachCause Input/, async function (searchItem) {
-  
+When(/^The user types(.*) in SeachCause Input/, async function (searchItem) {
+
   //Search cause , n digit letter as input   
-  //const searchCause = await SupportCausePage.searchCauseLink;
-  let ele = await $("#sagc-hero-search-input");
-  ele.setValue(searchItem);
+  const searchCause = await SupportCausePage.searchCauseLink;
+  searchCause.setValue(searchItem);
   //wait time for options to appear
   await browser.pause(5000);
   this.searchItem = searchItem;
 });
 
-When(/^Select nth (.*) item from the suggestions/,async function (suggestionNum) {
+When(/^The user selects the nth (.*) item from the suggestions/, async function (suggestionNum) {
 
   //Get all suggestions
-  //const causeSuggestionList = await SupportCausePage.searchSuggestions;  
-    let causeSuggestionList = await $$("#sagc-hero-search-input-auto-suggest > li > button:first-child");
+  const causeSuggestionList = await SupportCausePage.searchSuggestions;
+  suggestionNum = parseInt(suggestionNum);
+  expect(causeSuggestionList.length).toBeGreaterThanOrEqual(suggestionNum);
 
-    //validate if there are atleast n suggestions to pick from
-    suggestionNum = parseInt(suggestionNum);
-    expect(causeSuggestionList.length).toBeGreaterThanOrEqual(suggestionNum);
+  //Selected the nth suggested option
+  const selectedCause = await causeSuggestionList[suggestionNum - 1].getText();
 
-    //Selected the nth suggested option
-    const selectedCause = await causeSuggestionList[suggestionNum - 1 ].getText();
+  const searchCause = await SupportCausePage.searchCauseLink;
+  const backSpaces = new Array(this.searchItem.length).fill("Backspace");
 
-    //const searchCause = await SupportCausePage.searchCauseLink;
-    let ele = await $("#sagc-hero-search-input");
-    
-    //clearValue is not working as expected, hence using backSpaces to clear the input box
-    //await ele.clearValue();
+  await searchCause.setValue(backSpaces);
+  searchCause.setValue(selectedCause);
 
-    const backSpaces = new Array(this.searchItem.length).fill("Backspace");
+  this.selectedCause = selectedCause;
+});
 
-    await ele.setValue(backSpaces);
-    ele.setValue(selectedCause);
-
-    this.selectedCause = selectedCause;
-  }
-);
-
-When(/^Click SearchCause Button/, async function () {
+When(/^The user clicks the SearchCause Button/, async function () {
 
   //Click Search
+  await SupportCausePage.submitSearchCauseLink.click();
 
-  //await SupportCausePage.submitSearchCauseLink.click();
-  let ele = await $("#sagc-hero-search-submit");
-  await ele.click();
-});
+  });

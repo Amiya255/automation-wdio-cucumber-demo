@@ -8,7 +8,7 @@ class SupportCausePage {
   }
 
   get submitSearchCauseLink() {
-    return $("#sagc-hero-search-input");
+    return $("#sagc-hero-search-submit");
   }
 }
 
