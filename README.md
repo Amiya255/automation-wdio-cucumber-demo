@@ -1,4 +1,4 @@
-# Demo JavaScript and WebdriverIO using cucumber framework
+# Demo: JavaScript and WebdriverIO using cucumber framework
 A test framework for Easyfundraising 
 
 ## How to run
