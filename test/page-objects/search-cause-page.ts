@@ -1,5 +1,5 @@
 class SearchCausePage {
-  get searchResult() {
+  get searchCauseResult() {
     return $$('div[data-testid="cause_details"] p[data-testid="title"]');
   }
 }

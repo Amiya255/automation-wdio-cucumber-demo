@@ -5,6 +5,7 @@ class HomePage {
 
     get findACauseLink() {
         return $('div[data-testid="header-link"]:nth-child(2)');
+        
     }
 }
 

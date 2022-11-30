@@ -1,12 +1,11 @@
 import { setWorldConstructor } from "@wdio/cucumber-framework";
-import chai from "chai";
 
 class CustomWorld {
   selectedCause: string;
-  searchItem: string;
+  SearchItem: string;
   constructor() {
     this.selectedCause = "";
-    this.searchItem = "";
+    this.SearchItem = "";
   }
 }
 
