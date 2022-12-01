@@ -1,7 +1,8 @@
 class SimpleSearchPage {
   open() {
-    return browser.url("https://www.easyfundraising.org.uk/");
+    return browser.url("https://www.easyfundraising.org.uk/");        
   }
+ 
 
   get findACauseLink() {
     return $('div[data-testid="header-link"]:nth-child(2)');
