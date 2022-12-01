@@ -5,7 +5,7 @@ class SimpleSearchPage {
  
 
   get findACauseLink() {
-    return $('div[data-testid="header-link"]:nth-child(2)');
+    return $("a[href='/support-a-good-cause/']");
   }
 
   get searchCauseLink() {
