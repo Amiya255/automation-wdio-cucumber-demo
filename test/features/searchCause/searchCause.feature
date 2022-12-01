@@ -12,6 +12,6 @@ Feature: Search Cause
 
         Examples:
             | TestID      | SearchItem | SuggestionNum |
-            | Demo_TC001  |    can     |      3        |
-            | Demo_TC002  |    abc     |      4        |
+            | Demo_TC001  |    abc     |      3        |
+            | Demo_TC002  |    can     |      1        |
             | Demo_TC003  |    child   |      2        |
