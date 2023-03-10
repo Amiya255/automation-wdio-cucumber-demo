@@ -1,6 +1,8 @@
 # Demo: JavaScript and WebdriverIO using cucumber framework
 A test framework for Easyfundraising 
 
+##Maddy test
+
 ## How to run
 1. download the package and run below command inside the project folder
 2. npm install @wdio/cli
