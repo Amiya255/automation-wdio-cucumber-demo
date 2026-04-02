@@ -1,0 +1,5 @@
+print('#' * 90)
+print("n")
+print("\n")
+print("/n")
+print("/tvictoria/stello")
